@@ -1,5 +1,7 @@
+import KakaoLogin from '../components/Buttons/LoginWithKakaoButton';
+
 const Landing = () => {
-	return <>랜딩 페이지</>;
+	return <KakaoLogin />;
 };
 
 export default Landing;
