@@ -1,1 +1,3 @@
-export default function MyPage(params) {}
+const MyPage = (params) => {};
+
+export default MyPage;
