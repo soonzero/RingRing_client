@@ -1,6 +1,6 @@
-import Header from '../components/Header';
-import LoginWithKakaoBtn from '../components/Buttons/LoginWithKakaoButton';
-import mockup from '../assets/images/iPhone 12 Mini - White - Portrait.png';
+import Header from '../components/common/Header';
+import LoginWithKakaoBtn from '../components/button/LoginWithKakaoButton';
+import Phone from '../components/Phone';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import TextTransition from 'react-text-transition';
@@ -15,33 +15,64 @@ const texts = [
 	'강풍이 심해요 💨',
 ];
 
+const MainStyle = styled.main`
+	position: relative;
+	display: flex;
+	flex-direction: column;
+`;
+
 const SectionStyle = styled.section`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding: 72px 24px;
-	margin: 24px 0px;
-
-	&:first-child,
-	&:last-child {
-		margin: 0;
-	}
 
 	&:nth-child(odd) {
 		background-color: #fafafa;
 	}
 
 	strong {
+		display: block;
+		width: 100%;
+		max-width: 600px;
 		font-family: tossface;
 		font-size: 1.1rem;
 		font-weight: 500;
+		margin: 0 auto;
 		margin-bottom: 12px;
 	}
 
+	img {
+		width: auto;
+		max-width: 450px;
+		max-height: calc(100vh - 60px);
+		margin: 0 auto;
+	}
+
+	.internal-image {
+		display: none;
+	}
+
+	.section-wrapper {
+		width: 100%;
+		max-width: 1920px;
+		margin: 0 auto;
+	}
+
+	.section-container {
+		display: flex;
+		flex-direction: column;
+		padding: 72px 24px;
+		text-align: left;
+	}
+
 	.section-title {
+		display: block;
 		font-size: 1.5rem;
 		font-weight: 600;
 		line-height: 1.5;
+		width: 100%;
+		max-width: 600px;
+		margin: 0 auto;
 		margin-bottom: 24px;
 
 		span {
@@ -52,6 +83,50 @@ const SectionStyle = styled.section`
 
 	.center {
 		text-align: center;
+	}
+
+	@media screen and (min-width: 1119px) {
+		height: calc(100vh - 60px);
+		background-color: #fafafa;
+		max-width: 50vw;
+
+		.section-title {
+			font-size: 2rem;
+		}
+
+		.section-wrapper.phone {
+			.section-container {
+				padding: 0;
+			}
+		}
+
+		&:nth-child(3) {
+			position: fixed;
+			top: 60px;
+			right: 0;
+			width: 100%;
+			height: calc(100vh - 60px);
+
+			.external-image {
+				position: relative;
+				z-index: 3;
+			}
+
+			.internal-image {
+				position: absolute;
+				display: block;
+				z-index: 1;
+			}
+
+			.internal-image.ex1 {
+				z-index: 1;
+			}
+		}
+
+		.section-container {
+			align-items: center;
+			text-align: right;
+		}
 	}
 `;
 
@@ -72,6 +147,11 @@ const CardStyle = styled.div`
 		color: #333333;
 		font-weight: 600;
 	}
+
+	@media screen and (min-width: 1119px) {
+		margin: 0;
+		/* max-width: 40vw; */
+	}
 `;
 
 const Landing = () => {
@@ -87,47 +167,57 @@ const Landing = () => {
 	return (
 		<>
 			<Header />
-			<main>
+			<MainStyle>
 				<SectionStyle>
-					<strong>날씨</strong>
-					<h1 className="section-title">
-						시간을 지정하면,
-						<br />
-						<span>날씨</span>를 알려드려요
-					</h1>
-					<CardStyle>
-						<h1>
-							오늘은{' '}
-							<TextTransition inline direction="down">
-								<span className="tossface">{texts[index % texts.length]}</span>
-							</TextTransition>
-						</h1>
-					</CardStyle>
+					<div className="section-wrapper">
+						<div className="section-container">
+							<strong>날씨</strong>
+							<h1 className="section-title">
+								시간을 지정하면,
+								<br />
+								<span>날씨</span>를 알려드려요
+							</h1>
+							<CardStyle>
+								<h1>
+									오늘은{' '}
+									<TextTransition inline direction="down">
+										<span className="tossface">
+											{texts[index % texts.length]}
+										</span>
+									</TextTransition>
+								</h1>
+							</CardStyle>
+						</div>
+					</div>
 				</SectionStyle>
 				<SectionStyle>
-					<strong>뉴스</strong>
-					<h1 className="section-title tossface">
-						원한다면
-						<br />
-						<span>뉴스</span>까지 한 번에 📰
-					</h1>
+					<div className="section-wrapper">
+						<div className="section-container">
+							<strong>뉴스</strong>
+							<h1 className="section-title tossface">
+								원한다면
+								<br />
+								<span>뉴스</span>까지 한 번에 📰
+							</h1>
+						</div>
+					</div>
 				</SectionStyle>
 				<SectionStyle>
-					<img
-						src={mockup}
-						width="100%"
-						style={{ maxWidth: '300px', margin: '0 auto' }}
-					/>
+					<Phone />
 				</SectionStyle>
 				<SectionStyle>
-					<h1 className="section-title center tossface">
-						카카오로
-						<br />
-						바로 시작할 수 있어요
-					</h1>
-					<LoginWithKakaoBtn />
+					<div className="section-wrapper">
+						<div className="section-container">
+							<h1 className="section-title center tossface">
+								카카오로
+								<br />
+								바로 시작할 수 있어요
+							</h1>
+							<LoginWithKakaoBtn />
+						</div>
+					</div>
 				</SectionStyle>
-			</main>
+			</MainStyle>
 		</>
 	);
 };
