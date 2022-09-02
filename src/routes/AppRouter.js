@@ -1,9 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Landing from "./Landing";
 import KakaoLogin from "./KakaoLogin";
-import MyPage from "../components/MyPage";
-import Alram from "../components/Alram";
-import News from "../components/News";
+import MyPage from "../components/mypage/MyPage";
+import { menus } from "../assets/menulist/menus";
 
 const AppRouter = () => {
   return (
@@ -14,8 +13,9 @@ const AppRouter = () => {
 
         {/* 마이페이지 test용 */}
         <Route path="/mypage" element={<MyPage />}>
-          <Route path="/mypage/alram" element={<Alram />} />
-          <Route path="/mypage/news" element={<News />} />
+          {menus.map((menu) => (
+            <Route key={menu.id} path={menu.path} element={menu.component} />
+          ))}
         </Route>
       </Routes>
     </BrowserRouter>

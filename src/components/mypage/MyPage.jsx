@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
-import Header from "./common/Header";
+import Header from "../common/Header";
 
 const MainStyle = styled.main`
   border: 1px solid black;
