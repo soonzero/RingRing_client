@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as LogoSVG } from "../assets/icons/logo.svg";
 import { useEffect, useState } from "react";
-import TopMenu from "./TopMenu";
 
 const NavBarStyle = styled.nav`
   position: sticky;
@@ -14,6 +13,7 @@ const NavBarStyle = styled.nav`
 
   .navbar-container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     height: 100%;
     margin: 0 24px;
@@ -61,7 +61,6 @@ const NavBar = () => {
             <LogoSVG />
           </span>
         </li>
-        <TopMenu />
       </ul>
     </NavBarStyle>
   );
