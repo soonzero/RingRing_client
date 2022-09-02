@@ -10,7 +10,7 @@ const HeaderStyle = styled.header`
   border-bottom: ${(props) => `1px solid ${props.border ? "rgba(0, 27, 55, 0.1)" : "transparent"}}`};
 `;
 
-const Header = ({ menuId, setMenuId }) => {
+const Header = () => {
   const [border, setBorder] = useState(false);
 
   const onScrollHandler = () => {
@@ -28,7 +28,7 @@ const Header = ({ menuId, setMenuId }) => {
 
   return (
     <HeaderStyle border={border}>
-      <NavBar menuId={menuId} setMenuId={setMenuId} />
+      <NavBar />
     </HeaderStyle>
   );
 };

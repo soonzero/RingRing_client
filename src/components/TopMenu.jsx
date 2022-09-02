@@ -41,11 +41,16 @@ const MenuStyle = styled.div`
   span:hover {
     opacity: 0.5;
   }
+  Link {
+    text-decoration: none;
+  }
 `;
 
-const TopMenu = ({ menuId, setMenuId }) => {
+const TopMenu = () => {
   //로그인체크 true: 로그인 상태
-  const [chkLogin, setChkLogin] = useState(true);
+  const [chkLogin, setChkLogin] = useState(false);
+  //클릭된 메뉴 상태
+  const [menuId, setMenuId] = useState(0);
   //메뉴
   const menus = Menus;
   const handleMenuClick = (id) => {
@@ -54,19 +59,27 @@ const TopMenu = ({ menuId, setMenuId }) => {
   return (
     <MenuStyle>
       <ul className="menu-container">
-        {chkLogin
-          ? menus.map((menu) => {
-              return (
-                <li className="menu-content" key={menu.id}>
-                  {/* <Link to={menu.link}> */}
+        {chkLogin ? (
+          menus.map((menu) => {
+            return (
+              <li className="menu-content" key={menu.id}>
+                <Link to={menu.link}>
                   <span className={menuId === menu.id ? "now" : null} onClick={() => handleMenuClick(menu.id)}>
                     {menu.text}
                   </span>
-                  {/* </Link> */}
-                </li>
-              );
-            })
-          : null}
+                </Link>
+              </li>
+            );
+          })
+        ) : (
+          // test용
+          <li className="menu-content">
+            <Link to="/mypage">
+              <span onClick={() => setChkLogin(true)}>마이페이지</span>
+            </Link>
+          </li>
+          //null
+        )}
       </ul>
     </MenuStyle>
   );

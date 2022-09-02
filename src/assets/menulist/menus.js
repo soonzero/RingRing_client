@@ -2,11 +2,13 @@ export const menus = [
   {
     id: 0,
     text: "알람 설정",
-    link: "/alram",
+    name: "Alram",
+    link: "/mypage/alram",
   },
   {
     id: 1,
     text: "뉴스 보기",
-    link: "/news",
+    name: "News",
+    link: "/mypage/news",
   },
 ];

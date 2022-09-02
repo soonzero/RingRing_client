@@ -1,3 +1,3 @@
-export default function Alram({ props }) {
-  return <>{props}</>;
+export default function Alram() {
+  return <>Alram</>;
 }

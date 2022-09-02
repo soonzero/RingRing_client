@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { ReactComponent as LogoSVG } from "../../assets/icons/logo.svg";
 import { useEffect, useState } from "react";
 import TopMenu from "../TopMenu";
+import { Link } from "react-router-dom";
 
 const NavBarStyle = styled.nav`
   position: sticky;
@@ -40,7 +41,7 @@ const NavBarStyle = styled.nav`
   }
 `;
 
-const NavBar = ({ menuId, setMenuId }) => {
+const NavBar = () => {
   const [border, setBorder] = useState(false);
 
   const onScrollHandler = () => {
@@ -61,11 +62,14 @@ const NavBar = ({ menuId, setMenuId }) => {
       <ul className="navbar-container">
         <li className="navbar-content">
           <span className="navbar-logo-container">
-            <LogoSVG />
+            {/* link test용 */}
+            <Link to="/">
+              <LogoSVG />
+            </Link>
           </span>
         </li>
       </ul>
-      <TopMenu menuId={menuId} setMenuId={setMenuId} />
+      <TopMenu />
     </NavBarStyle>
   );
 };
