@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Landing from "./Landing";
 import KakaoLogin from "./KakaoLogin";
-import MyPage from "../components/MyPage";
+import MyPage from "./MyPage";
 
 const AppRouter = () => {
   return (
