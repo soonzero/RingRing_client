@@ -41,7 +41,7 @@ const MenuStyle = styled.div`
   span:hover {
     opacity: 0.5;
   }
-  Link {
+  a {
     text-decoration: none;
   }
 `;
