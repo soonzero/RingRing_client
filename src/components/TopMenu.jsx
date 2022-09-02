@@ -53,6 +53,11 @@ const TopMenu = () => {
   const [menuId, setMenuId] = useState(0);
   //메뉴
   const menus = Menus;
+
+  /**
+   * 메뉴 버튼 클릭시 백그라운드 색상 변경
+   * @param {number} id
+   */
   const handleMenuClick = (id) => {
     setMenuId(id);
   };
