@@ -126,7 +126,7 @@ const SectionStyle = styled.section`
 
 		.section-container {
 			align-items: center;
-			text-align: right;
+			text-align: center;
 		}
 	}
 `;
