@@ -6,14 +6,16 @@ import styled from 'styled-components';
 import TextTransition from 'react-text-transition';
 
 const texts = [
-	'맑아요 ☀️',
-	'흐려요 ☁️',
-	'살짝 흐려요 ⛅️',
-	'비가 와요 ☔️',
-	'눈이 와요 ❄️',
-	'천둥번개가 쳐요 ⚡️',
-	'강풍이 심해요 💨',
+	'맑아요',
+	'흐려요',
+	'살짝 흐려요',
+	'비가 와요',
+	'눈이 와요',
+	'천둥번개가 쳐요',
+	'강풍이 심해요',
 ];
+
+const icons = ['☀️', '☁️', '⛅️', '☔️', '❄️', '⚡️', '💨'];
 
 const MainStyle = styled.main`
 	position: relative;
@@ -34,7 +36,6 @@ const SectionStyle = styled.section`
 		display: block;
 		width: 100%;
 		max-width: 600px;
-		font-family: tossface;
 		font-size: 1.1rem;
 		font-weight: 500;
 		margin: 0 auto;
@@ -181,8 +182,9 @@ const Landing = () => {
 								<h1>
 									오늘은{' '}
 									<TextTransition inline direction="down">
+										<span>{texts[index % texts.length]}</span>
 										<span className="tossface">
-											{texts[index % texts.length]}
+											{icons[index % icons.length]}
 										</span>
 									</TextTransition>
 								</h1>
@@ -194,10 +196,11 @@ const Landing = () => {
 					<div className="section-wrapper">
 						<div className="section-container">
 							<strong>뉴스</strong>
-							<h1 className="section-title tossface">
+							<h1 className="section-title">
 								원한다면
 								<br />
-								<span>뉴스</span>까지 한 번에 📰
+								<span>뉴스</span>까지 한 번에{' '}
+								<span className=" tossface">📰</span>
 							</h1>
 						</div>
 					</div>
@@ -208,7 +211,7 @@ const Landing = () => {
 				<SectionStyle>
 					<div className="section-wrapper">
 						<div className="section-container">
-							<h1 className="section-title center tossface">
+							<h1 className="section-title center">
 								카카오로
 								<br />
 								바로 시작할 수 있어요
