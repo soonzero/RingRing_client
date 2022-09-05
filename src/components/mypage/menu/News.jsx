@@ -37,7 +37,7 @@ export default function News() {
       <Title text="뉴스 보기" />
       <div className="list">
         {items.map((item, idx) => {
-          items.length - 1 == idx ? (
+          return items.length - 1 === idx ? (
             <div className="list-item" ref={ref}>
               {item.content}
             </div>
