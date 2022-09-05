@@ -103,9 +103,10 @@ const SectionStyle = styled.section`
 
 		&:nth-child(3) {
 			position: fixed;
-			top: 60px;
+			top: 0;
 			right: 0;
 			width: 100%;
+			padding-top: 60px;
 			height: calc(100vh - 60px);
 
 			.external-image {
