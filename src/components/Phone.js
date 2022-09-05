@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import mockup from "../assets/images/iPhone 12 Mini Empty.png";
-import ex1 from "../assets/images/ex1.png";
-import ex2 from "../assets/images/ex2.png";
+import { useState, useEffect } from 'react';
+import mockup from '../assets/images/iPhone 12 Mini Empty.png';
+import ex1 from '../assets/images/ex1.png';
+import ex2 from '../assets/images/ex2.png';
 
 const Phone = () => {
   const [scrollHeight, setScrollHeight] = useState(window.scrollY);
@@ -12,10 +12,10 @@ const Phone = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", onScrollHandler);
+    window.addEventListener('scroll', onScrollHandler);
 
     return () => {
-      window.removeEventListener("scroll", onScrollHandler);
+      window.removeEventListener('scroll', onScrollHandler);
     };
   }, []);
 

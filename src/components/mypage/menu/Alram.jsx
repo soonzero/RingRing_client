@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import ColorBtn from "../../button/ColorBtn";
-import Title from "../../common/Title";
+import styled from 'styled-components';
+import ColorBtn from '../../button/ColorBtn';
+import Title from '../../common/Title';
 
 const Content = styled.section`
   .gray {

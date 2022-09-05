@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import { ReactComponent as LogoSVG } from "../../assets/icons/logo.svg";
-import { useEffect, useState } from "react";
-import TopMenu from "../TopMenu";
-import { Link } from "react-router-dom";
+import styled from 'styled-components';
+import { ReactComponent as LogoSVG } from '../../assets/icons/logo.svg';
+import { useEffect, useState } from 'react';
+import TopMenu from '../TopMenu';
+import { Link } from 'react-router-dom';
 
 const NavBarStyle = styled.nav`
   position: sticky;
@@ -10,7 +10,7 @@ const NavBarStyle = styled.nav`
   z-index: 10;
   height: 60px;
   background-color: white;
-  border-bottom: ${(props) => `1px solid ${props.border ? "rgba(0, 27, 55, 0.1)" : "transparent"}}`};
+  border-bottom: ${(props) => `1px solid ${props.border ? 'rgba(0, 27, 55, 0.1)' : 'transparent'}}`};
   display: flex;
   margin: 0 5%;
 
@@ -50,10 +50,10 @@ const NavBar = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", onScrollHandler);
+    window.addEventListener('scroll', onScrollHandler);
 
     return () => {
-      window.removeEventListener("scroll", onScrollHandler);
+      window.removeEventListener('scroll', onScrollHandler);
     };
   }, []);
 

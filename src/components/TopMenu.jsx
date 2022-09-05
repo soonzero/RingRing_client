@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import { menus as Menus } from "../assets/menulist/menus";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { menus as Menus } from '../assets/menulist/menus';
 
 const MenuStyle = styled.div`
   display: flex;
@@ -69,7 +69,7 @@ const TopMenu = () => {
             return (
               <li className="menu-content" key={menu.id}>
                 <Link to={menu.path}>
-                  <span className={menuId === menu.id ? "now" : null} onClick={() => handleMenuClick(menu.id)}>
+                  <span className={menuId === menu.id ? 'now' : null} onClick={() => handleMenuClick(menu.id)}>
                     {menu.text}
                   </span>
                 </Link>
