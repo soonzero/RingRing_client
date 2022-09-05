@@ -57,19 +57,18 @@ const TopMenu = () => {
   };
   return (
     <MenuStyle>
-      {chkLogin
-        ? menus.map((menu) => {
-            return (
-              <li className="menu-content" key={menu.id}>
-                <Link to={menu.path}>
-                  <span className={menuId === menu.id ? 'now' : null} onClick={() => handleMenuClick(menu.id)}>
-                    {menu.text}
-                  </span>
-                </Link>
-              </li>
-            );
-          })
-        : null}
+      {chkLogin &&
+        menus.map((menu) => {
+          return (
+            <li className="menu-content" key={menu.id}>
+              <Link to={menu.path}>
+                <span className={menuId === menu.id ? 'now' : null} onClick={() => handleMenuClick(menu.id)}>
+                  {menu.text}
+                </span>
+              </Link>
+            </li>
+          );
+        })}
     </MenuStyle>
   );
 };
