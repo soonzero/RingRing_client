@@ -11,6 +11,7 @@ const LoginWithKakaoBtn = styled.button`
 	border-radius: 6px;
 	padding: 0 11px;
 	margin: 0 auto;
+	cursor: pointer;
 
 	span {
 		flex-grow: 1;
