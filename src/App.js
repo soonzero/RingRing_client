@@ -1,11 +1,7 @@
-import MyPage from "./components/MyPage";
+import AppRouter from "./routes/AppRouter";
 
 function App() {
-  return (
-    <div className="App">
-      <MyPage />
-    </div>
-  );
+  return <AppRouter />;
 }
 
 export default App;
