@@ -5,14 +5,10 @@ import TopMenu from '../TopMenu';
 import { Link } from 'react-router-dom';
 
 const NavBarStyle = styled.nav`
-  position: sticky;
-  top: 0;
-  z-index: 10;
+  max-width: 1920px;
+  margin: 0 auto;
+  width: 100%;
   height: 60px;
-  background-color: white;
-  border-bottom: ${(props) => `1px solid ${props.border ? 'rgba(0, 27, 55, 0.1)' : 'transparent'}}`};
-  display: flex;
-  margin: 0 5%;
 
   .navbar-container {
     display: flex;
@@ -62,11 +58,15 @@ const NavBar = () => {
       <ul className="navbar-container">
         <li className="navbar-content">
           <span className="navbar-logo-container">
-            <LogoSVG />
+            <Link to="/">
+              <LogoSVG />
+            </Link>
           </span>
         </li>
+        <li className="navbar-content">
+          <TopMenu />
+        </li>
       </ul>
-      <TopMenu />
     </NavBarStyle>
   );
 };

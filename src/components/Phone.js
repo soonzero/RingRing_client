@@ -8,7 +8,6 @@ const Phone = () => {
 
   const onScrollHandler = () => {
     setScrollHeight((prev) => window.scrollY);
-    console.log(window.scrollY);
   };
 
   useEffect(() => {
