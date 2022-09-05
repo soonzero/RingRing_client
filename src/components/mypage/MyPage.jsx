@@ -1,34 +1,35 @@
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import Header from '../common/Header';
+const MypageStyle = styled.div`
+  overflow-y: scroll;
 
-const MainStyle = styled.section`
-  position: relative;
-  margin: 0 auto;
-  max-width: 718px;
+  .menu {
+    position: relative;
+    margin: 0 auto;
+    max-width: 718px;
 
-  @media screen and (max-width: 768px) {
-    padding: 128px 24px;
-    top: -128px;
+    @media screen and (max-width: 768px) {
+      padding: 128px 24px;
+      top: -128px;
+    }
   }
-`;
 
-const Background = styled.div`
-  margin: 0;
-  padding: 0;
-  background-color: #fafafa;
+  .background {
+    background-color: #fafafa;
+  }
 `;
 
 const MyPage = () => {
   return (
-    <>
+    <MypageStyle>
       <Header />
-      <Background>
-        <MainStyle>
+      <div className="background">
+        <div className="menu">
           <Outlet />
-        </MainStyle>
-      </Background>
-    </>
+        </div>
+      </div>
+    </MypageStyle>
   );
 };
 

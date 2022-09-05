@@ -62,10 +62,7 @@ const NavBar = () => {
       <ul className="navbar-container">
         <li className="navbar-content">
           <span className="navbar-logo-container">
-            {/* link test용 */}
-            <Link to="/">
-              <LogoSVG />
-            </Link>
+            <LogoSVG />
           </span>
         </li>
       </ul>

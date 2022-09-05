@@ -3,17 +3,11 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { menus as Menus } from '../assets/menulist/menus';
 
-const MenuStyle = styled.div`
+const MenuStyle = styled.ul`
   display: flex;
   align-items: center;
   margin-left: auto;
 
-  .menu-container {
-    display: flex;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-  }
   .menu-content {
     height: 100%;
     list-style: none;
@@ -48,7 +42,7 @@ const MenuStyle = styled.div`
 
 const TopMenu = () => {
   //로그인체크 true: 로그인 상태
-  const [chkLogin, setChkLogin] = useState(false);
+  const [chkLogin, setChkLogin] = useState(true);
   //클릭된 메뉴 상태
   const [menuId, setMenuId] = useState(0);
   //메뉴
@@ -63,9 +57,8 @@ const TopMenu = () => {
   };
   return (
     <MenuStyle>
-      <ul className="menu-container">
-        {chkLogin ? (
-          menus.map((menu) => {
+      {chkLogin
+        ? menus.map((menu) => {
             return (
               <li className="menu-content" key={menu.id}>
                 <Link to={menu.path}>
@@ -76,16 +69,7 @@ const TopMenu = () => {
               </li>
             );
           })
-        ) : (
-          // test용
-          <li className="menu-content">
-            <Link to="/mypage">
-              <span onClick={() => setChkLogin(true)}>마이페이지</span>
-            </Link>
-          </li>
-          //null
-        )}
-      </ul>
+        : null}
     </MenuStyle>
   );
 };

@@ -11,7 +11,6 @@ const AppRouter = () => {
         <Route path="/" element={<Landing />} />
         <Route path="/kakaologin" element={<KakaoLogin />} />
 
-        {/* 마이페이지 test용 */}
         <Route path="/mypage" element={<MyPage />}>
           {menus.map((menu) => (
             <Route key={menu.id} path={menu.path} element={menu.component} />
