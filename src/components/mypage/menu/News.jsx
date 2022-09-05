@@ -10,7 +10,7 @@ export default function News() {
 
   const [ref, inView] = useInView();
 
-  const url = '//';
+  const url = '/http/';
 
   // 서버에서 아이템을 가지고 오는 함수
   const getItems = useCallback(async () => {
