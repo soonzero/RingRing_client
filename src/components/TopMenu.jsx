@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { menus } from '../assets/menulist/menus';
+import { menus as Menus } from '../assets/menulist/menus';
 
 const MenuStyle = styled.ul`
 	display: flex;
 	align-items: center;
-	padding: 0;
-	margin: 0;
+	margin-left: auto;
 
 	.menu-content {
 		height: 100%;
@@ -43,10 +42,11 @@ const MenuStyle = styled.ul`
 
 const TopMenu = () => {
 	//로그인체크 true: 로그인 상태
-	const [chkLogin, setChkLogin] = useState(false);
+	const [chkLogin, setChkLogin] = useState(true);
 	//클릭된 메뉴 상태
 	const [menuId, setMenuId] = useState(0);
 	//메뉴
+	const menus = Menus;
 
 	/**
 	 * 메뉴 버튼 클릭시 백그라운드 색상 변경
@@ -57,7 +57,7 @@ const TopMenu = () => {
 	};
 	return (
 		<MenuStyle>
-			{chkLogin ? (
+			{chkLogin &&
 				menus.map((menu) => {
 					return (
 						<li className="menu-content" key={menu.id}>
@@ -71,16 +71,7 @@ const TopMenu = () => {
 							</Link>
 						</li>
 					);
-				})
-			) : (
-				// test용
-				<li className="menu-content">
-					<Link to="/mypage">
-						<span onClick={() => setChkLogin(true)}>마이페이지</span>
-					</Link>
-				</li>
-				//null
-			)}
+				})}
 		</MenuStyle>
 	);
 };
