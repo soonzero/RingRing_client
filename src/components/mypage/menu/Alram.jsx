@@ -1,15 +1,7 @@
 import styled from "styled-components";
 import ColorBtn from "../../button/ColorBtn";
+import Title from "../../common/Title";
 
-const Title = styled.h3`
-  border-bottom: 1px solid rgba(226, 228, 232);
-  padding-bottom: 24px;
-  margin-top: 80px;
-  margin-bottom: 48px;
-  font-weight: bold;
-  font-size: 32px;
-  color: rgba(48, 53, 65);
-`;
 const Content = styled.section`
   .gray {
     color: rgba(73, 78, 92);
@@ -45,7 +37,7 @@ const Float = styled.div`
 export default function Alram() {
   return (
     <>
-      <Title>알람 설정하기</Title>
+      <Title text="알람 설정하기" />
       <Content>
         <span className="gray">알람을 받고싶은 지역과 시간을 설정하세요.</span>
         <Float />

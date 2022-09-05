@@ -13,13 +13,21 @@ const MainStyle = styled.section`
   }
 `;
 
+const Background = styled.div`
+  margin: 0;
+  padding: 0;
+  background-color: #fafafa;
+`;
+
 const MyPage = () => {
   return (
     <>
       <Header />
-      <MainStyle>
-        <Outlet />
-      </MainStyle>
+      <Background>
+        <MainStyle>
+          <Outlet />
+        </MainStyle>
+      </Background>
     </>
   );
 };
