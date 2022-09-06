@@ -18,6 +18,7 @@ const MypageStyle = styled.div`
 
   .background {
     background-color: #fafafa;
+    padding-bottom: 80px;
   }
 `;
 

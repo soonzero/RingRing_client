@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { menus as Menus } from '../assets/menulist/menus';
+import { menus } from '../assets/menulist/menus';
 
 const MenuStyle = styled.ul`
   display: flex;
@@ -45,8 +45,6 @@ const TopMenu = () => {
   const [chkLogin, setChkLogin] = useState(true);
   //클릭된 메뉴 상태
   const [menuId, setMenuId] = useState(0);
-  //메뉴
-  const menus = Menus;
 
   /**
    * 메뉴 버튼 클릭시 백그라운드 색상 변경
