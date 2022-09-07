@@ -2,9 +2,8 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import ColorBtn from '../../button/ColorBtn';
 import Title from '../../common/Title';
-import DaumPostcodeEmbed from 'react-daum-postcode';
-import ReactModal from 'react-modal';
 import Map from '../../common/Map';
+import Post from '../../common/Post';
 
 const Content = styled.section`
   .gray {
@@ -38,48 +37,18 @@ const Content = styled.section`
 const Float = styled.div`
   height: 48px;
 `;
-const customStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: '50%',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-  },
-  overlay: { zIndex: 1000 },
-};
-ReactModal.setAppElement('#root');
 
-const Postcode = (closeModal) => {
-  const handleComplete = (data) => {
-    console.log(data);
-    let fullAddress = data.address;
-    let extraAddress = '';
-
-    if (data.addressType === 'R') {
-      if (data.bname !== '') {
-        extraAddress += data.bname;
-      }
-      if (data.buildingName !== '') {
-        extraAddress += extraAddress !== '' ? `, ${data.buildingName}` : data.buildingName;
-      }
-      fullAddress += extraAddress !== '' ? ` (${extraAddress})` : '';
-    }
-
-    console.log(fullAddress); // e.g. '서울 성동구 왕십리로2길 20 (성수동1가)'
-  };
-  return <DaumPostcodeEmbed onComplete={handleComplete} />;
-};
 export default function Alram() {
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [postOpen, setPostOpen] = useState(false);
+  const [address, setAddress] = useState('');
+  const [location, setLocation] = useState([]);
 
-  function openModal() {
-    setIsOpen(true);
+  function openPost() {
+    setPostOpen(true);
   }
 
-  function closeModal() {
-    setIsOpen(false);
+  function closePost() {
+    setPostOpen(false);
   }
 
   return (
@@ -92,10 +61,10 @@ export default function Alram() {
           <div className="item">
             <label className="item-desc gray">지역 설정</label>
             <div className="item-input">
-              <input type="text" readOnly onClick={openModal} />
+              <input type="text" value={address} readOnly onClick={openPost} />
             </div>
             <Float />
-            <Map />
+            <Map address={address} setLocation={setLocation} />
           </div>
           <div className="item">
             <label className="item-desc gray">시간 설정</label>
@@ -106,9 +75,7 @@ export default function Alram() {
           <ColorBtn text="저장" color="rgba(84,113,241)" fontColor="white" />
         </form>
       </Content>
-      <ReactModal isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles}>
-        <Postcode closeModal={closeModal} />
-      </ReactModal>
+      <Post postOpen={postOpen} closePost={closePost} setAddress={setAddress} />
     </>
   );
 }
