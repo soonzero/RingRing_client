@@ -44,7 +44,8 @@ const SectionStyle = styled.section`
 
 	img {
 		width: auto;
-		max-width: 450px;
+		height: auto;
+		max-width: 100%;
 		max-height: calc(100vh - 60px);
 		margin: 0 auto;
 	}
@@ -108,6 +109,11 @@ const SectionStyle = styled.section`
 			width: 100%;
 			padding-top: 60px;
 			height: calc(100vh - 60px);
+
+			img {
+				height: auto;
+				max-width: 450px;
+			}
 
 			.external-image {
 				position: relative;

@@ -19,7 +19,7 @@ const LoginWithKakaoBtn = styled.button`
 	}
 `;
 
-const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_KAKAO_APP_KEY}&redirect_uri=http://localhost:3000/kakaologin&response_type=code`;
+const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_KAKAO_REST_API_KEY}&redirect_uri=${process.env.REACT_APP_KAKAO_REDIRECT_URI}/kakaologin&response_type=code`;
 
 const LoginWithKakaoButton = () => {
 	const loginWithKakao = () => {
@@ -29,7 +29,7 @@ const LoginWithKakaoButton = () => {
 	return (
 		<LoginWithKakaoBtn onClick={loginWithKakao}>
 			<KakaoSVG />
-			<span>카카오 로그인</span>
+			<span>{process.env.REACT_APP_KAKAO_REDIRECT_URI}</span>
 		</LoginWithKakaoBtn>
 	);
 };

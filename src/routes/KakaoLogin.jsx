@@ -13,7 +13,7 @@ const KakaoLogin = () => {
 			} = await axios({
 				method: 'POST',
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-				url: `https://kauth.kakao.com/oauth/token?grant_type=authorization_code&client_id=${process.env.REACT_APP_KAKAO_APP_KEY}&redirect_uri=http://localhost:3000/kakaologin&code=${KAKAO_CODE}`,
+				url: `https://kauth.kakao.com/oauth/token?grant_type=authorization_code&client_id=${process.env.REACT_APP_KAKAO_REST_API_KEY}&redirect_uri=${process.env.REACT_APP_KAKAO_REDIRECT_URI}/kakaologin&code=${KAKAO_CODE}`,
 			});
 			// access_token 받고, 서버에 전달해서 JWT 토큰 받기
 			sessionStorage.setItem('token', access_token);
