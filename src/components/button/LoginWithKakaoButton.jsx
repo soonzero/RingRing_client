@@ -29,7 +29,7 @@ const LoginWithKakaoButton = () => {
 	return (
 		<LoginWithKakaoBtn onClick={loginWithKakao}>
 			<KakaoSVG />
-			<span>{process.env.REACT_APP_KAKAO_REDIRECT_URI}</span>
+			<span>카카오 로그인</span>
 		</LoginWithKakaoBtn>
 	);
 };
