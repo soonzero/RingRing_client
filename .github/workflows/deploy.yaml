@@ -26,10 +26,10 @@ jobs:
       - name: Generate Environment Variables for Production
         run: |
           echo "REACT_APP_KAKAO_REST_API_KEY=$REACT_APP_KAKAO_REST_API_KEY" >> .env.production
-          echo "REACT_APP_KAKAO_REDIRECTION_URI=$REACT_APP_KAKAO_REDIRECTION_URI" >> .env.production
+          echo "REACT_APP_KAKAO_REDIRECT_URI=$REACT_APP_KAKAO_REDIRECT_URI" >> .env.production
         env:
           REACT_APP_KAKAO_REST_API_KEY: ${{ secrets.REACT_APP_KAKAO_REST_API_KEY }}
-          REACT_APP_KAKAO_REDIRECTION_URI: ${{ secrets.REACT_APP_KAKAO_REDIRECTION_URI }}
+          REACT_APP_KAKAO_REDIRECT_URI: ${{ secrets.REACT_APP_KAKAO_REDIRECT_URI }}
 
       - name: Npm install
         run: npm install
