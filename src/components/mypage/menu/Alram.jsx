@@ -33,10 +33,26 @@ const Content = styled.section`
     display: flex;
     justify-content: center;
   }
+  .select {
+    justify-content: flex-start;
+    border: none;
+  }
 `;
 const Float = styled.div`
   height: 48px;
 `;
+
+const TimeSelect = ({ name, count, text }) => {
+  const arr = [];
+  for (let i = 0; i <= Number(count); i++) {
+    arr.push(
+      <option key={i} value={i}>
+        {i} {text}
+      </option>
+    );
+  }
+  return <select name={name}>{arr.map((ele) => ele)}</select>;
+};
 
 export default function Alram() {
   const [postOpen, setPostOpen] = useState(false);
@@ -68,8 +84,9 @@ export default function Alram() {
           </div>
           <div className="item">
             <label className="item-desc gray">시간 설정</label>
-            <div className="item-input">
-              <input type="text" />
+            <div className="item-input select">
+              <TimeSelect name="hour" count="23" text="시" />
+              <TimeSelect name="minute" count="59" text="분" />
             </div>
           </div>
           <ColorBtn text="저장" color="rgba(84,113,241)" fontColor="white" />
