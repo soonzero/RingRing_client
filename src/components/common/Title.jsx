@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const TitleStyle = styled.h3`
   border-bottom: 1px solid rgba(226, 228, 232);

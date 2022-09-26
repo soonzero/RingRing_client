@@ -1,7 +1,7 @@
-import Title from "../../common/Title";
-import { useInView } from "react-intersection-observer";
-import { useCallback, useEffect, useState } from "react";
-import axios from "axios";
+import Title from '../../common/Title';
+import { useInView } from 'react-intersection-observer';
+import { useCallback, useEffect, useState } from 'react';
+import axios from 'axios';
 
 export default function News() {
   const [items, setItems] = useState([]);
@@ -10,7 +10,7 @@ export default function News() {
 
   const [ref, inView] = useInView();
 
-  const url = "//";
+  const url = '/http/naver';
 
   // 서버에서 아이템을 가지고 오는 함수
   const getItems = useCallback(async () => {
